@@ -1,0 +1,77 @@
+% SIGMETRICS conference (extended abstract/short paper) submission template
+% - Two column (acmart sigconf)
+% - Review + anonymous for double-blind submission
+% - Page numbers enabled for review
+
+\documentclass[sigconf,review,anonymous]{acmart}
+
+\settopmatter{printacmref=false} % hide ACM ref block during review
+\pagestyle{plain}                % page numbers
+
+% Keep packages minimal and compatible with acmart
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{tikz}
+
+\sisetup{detect-all=true}
+
+% Simple placeholder figure macro
+\newcommand{\placeholderfigure}[1][Placeholder figure; replace with your result]{%
+  \begin{tikzpicture}
+    \draw[gray] (0,0) rectangle (8,4);
+    \node[align=center] at (4,2) {#1};
+  \end{tikzpicture}%
+}
+
+\begin{document}
+
+\title[Short Title]{Full Title of Your Extended Abstract: Crisp Claim + Evidence}
+
+% Anonymous for review; uncomment for camera-ready
+% \\author{First A. Author}
+% \\affiliation{% 
+%   \\institution{University/Lab}
+%   \\city{City}
+%   \\country{Country}}
+% \\email{first.last@example.edu}
+
+\begin{abstract}
+Compact summary of problem, gap, key idea, and one or two headline results
+(with uncertainty if applicable). Keep it tight for the page limit.
+\end{abstract}
+
+% \\keywords{measurement, performance, systems}
+
+\maketitle
+
+\section{Introduction}
+% Problem importance, prior limitations, and your contribution in brief.
+
+\section{Approach}
+% Methods/models/system design; minimal setup details sufficient for review.
+
+\section{Results}
+% Most impactful findings; include baselines and uncertainty (CIs).
+
+\begin{figure}[t]
+  \centering
+  % Placeholder drawn with TikZ, no external file required
+  \placeholderfigure[Key result supporting the main claim]
+  \caption{Key result supporting the main claim.}
+  \Description{Textual description of the figure for accessibility.}
+  \label{fig:key}
+\end{figure}
+
+\section{Related Work}
+% Concise, precise positioning.
+
+\section{Conclusion}
+% Takeaway and immediate next steps.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
