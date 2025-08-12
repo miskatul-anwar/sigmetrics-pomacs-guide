@@ -1,5 +1,6 @@
 # SIGMETRICS/POMACS LaTeX Scaffold
 
+
 This repository contains ACM `acmart`-based templates aligned with SIGMETRICS norms:
 
 - `pomacs_main.tex`: POMACS (journal-style, single-column) submission.
@@ -7,6 +8,13 @@ This repository contains ACM `acmart`-based templates aligned with SIGMETRICS no
 - `sigmetrics_src.tex`: Student Research Competition (SRC) 1–2 page extended abstract (adjust per CFP).
 
 Both paper templates are configured for double-blind review (`anonymous`, `review`) and include page numbers for review. All templates compile without external assets, using a TikZ placeholder figure.
+=======
+This repository contains two ACM `acmart`-based templates aligned with SIGMETRICS norms:
+
+- `pomacs_main.tex`: POMACS (journal-style, single-column) submission.
+- `sigmetrics_conf_main.tex`: SIGMETRICS conference short/extended abstract (two-column).
+
+Both are configured for double-blind review (`anonymous`, `review`) and include page numbers for review.
 
 ## Build
 
@@ -15,6 +23,7 @@ Requirements:
 
 Commands:
 ```bash
+
 make            # builds both main PDFs (pomacs + conf)
 make pomacs     # builds pomacs_main.pdf
 make conf       # builds sigmetrics_conf_main.pdf
@@ -23,6 +32,14 @@ make conf       # builds sigmetrics_conf_main.pdf
 ## Continuous Integration (CI)
 
 A GitHub Actions workflow (`.github/workflows/latex.yml`) builds the PDFs on every push and PR, uploading artifacts you can download from the run summary. It attempts to build `pomacs_main.tex`, `sigmetrics_conf_main.tex`, and (optionally) `sigmetrics_src.tex`.
+
+=======
+make            # builds both PDFs
+make pomacs     # builds pomacs_main.pdf
+make conf       # builds sigmetrics_conf_main.pdf
+make clean      # cleans artifacts
+```
+
 
 ## Submission vs. Camera-ready
 
@@ -49,6 +66,7 @@ Both templates include `\input{src/stats}` which defines helpers:
 - `\unit{ms}` (requires `siunitx`) → typeset units with proper spacing
 - `\figref{}`, `\tabref{}`, `\secref{}` shortcuts
 
+=======
 ## Figures
 
 Templates include a TikZ-based placeholder figure so they compile without external assets. Replace with real figures when ready. Prefer vector PDFs/SVGs; use colorblind-safe palettes and ensure grayscale readability.
