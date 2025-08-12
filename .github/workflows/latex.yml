@@ -1,0 +1,51 @@
+name: LaTeX build
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build POMACS
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: pomacs_main.tex
+          latexmk_use_xelatex: false
+
+      - name: Upload POMACS PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: pomacs_main-pdf
+          path: pomacs_main.pdf
+
+      - name: Build SIGCONF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: sigmetrics_conf_main.tex
+          latexmk_use_xelatex: false
+
+      - name: Upload SIGCONF PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: sigmetrics_conf_main-pdf
+          path: sigmetrics_conf_main.pdf
+
+      - name: Build SRC (optional)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: sigmetrics_src.tex
+          latexmk_use_xelatex: false
+        continue-on-error: true
+
+      - name: Upload SRC PDF (if built)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sigmetrics_src-pdf
+          path: sigmetrics_src.pdf

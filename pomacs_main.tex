@@ -1,0 +1,157 @@
+% POMACS (journal-style) submission template for ACM SIGMETRICS
+% - Single column (acmart acmsmall)
+% - Review + anonymous for double-blind submission
+% - Page numbers enabled for review
+% Switch to camera-ready per instructions in README.md
+
+\documentclass[acmsmall,screen,review,anonymous]{acmart}
+
+% Journal metadata (filled at camera-ready; omit for submission)
+\acmJournal[POMACS]{POMACS}
+% \\acmVolume{X}\\acmNumber{Y}\\acmArticle{ZZ}\\acmYear{2026}\\acmMonth{6}
+
+% Review housekeeping
+\settopmatter{printacmref=false} % hide reference format block during review
+\renewcommand\footnotetextcopyrightpermission[1]{} % suppress permission footnote
+\pagestyle{plain} % page numbers
+
+% Packages: keep minimal and acmart-compatible
+\usepackage{microtype}
+\usepackage{booktabs}   % tables
+\usepackage{siunitx}    % units, alignment
+\usepackage{subcaption} % subfigures
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{tikz}       % placeholder figure
+\input{src/stats}
+
+% Theorem environments (customize as needed)
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Optional macros (keep conservative under acmart)
+\newcommand{\etal}{et~al.}
+\sisetup{detect-all=true}
+
+% Simple placeholder figure macro (compiles without external files)
+\newcommand{\placeholderfigure}[1][Placeholder figure; replace with your result]{%
+  \begin{tikzpicture}
+    \draw[gray] (0,0) rectangle (8,4);
+    \node[align=center] at (4,2) {#1};
+  \end{tikzpicture}%
+}
+
+\begin{document}
+
+\title[Short Title]{Full Title of Your Paper: Specific Method + Measurable Outcome}
+
+% Anonymous for review; uncomment and fill after acceptance
+% \\author{First A. Author}
+% \\affiliation{% 
+%   \\institution{University/Lab}
+%   \\city{City}
+%   \\country{Country}}
+% \\email{first.last@example.edu}
+
+% \\author{Second B. Author}
+% \\affiliation{% 
+%   \\organization{Organization}
+%   \\city{City}
+%   \\country{Country}}
+% \\email{second@example.org}
+
+\begin{abstract}
+Context/problem (1 sentence). Why existing approaches fall short (1 sentence).
+Your key idea and what is novel (1--2 sentences). Headline quantitative
+results with uncertainty and scope (1--2 sentences). Implications (1 sentence).
+\end{abstract}
+
+% CCS Concepts and Keywords (can be added or refined at camera-ready)
+% Use the ACM tool to generate CCSXML: https://dl.acm.org/ccs
+% \\begin{CCSXML}
+% ...
+% \\end{CCSXML}
+% \\ccsdesc[500]{Theory of computation~Queueing theory}
+% \\keywords{measurement, performance evaluation, scheduling, reproducibility}
+
+\maketitle
+\setcounter{footnote}{0} % ensure permission footnote counter is reset
+
+\section{Introduction}
+% Motivate with a concrete pain point; explain what's hard.
+% Bullet your contributions; each should map to a section/result.
+% Preview one main figure or theorem with intuition.
+
+\begin{itemize}
+  \item C1: <Method/Theorem> achieving <capability>, validated by <key result>.
+  \item C2: <System/Prototype> with <feature>; evaluated on <workloads>.
+  \item C3: <Measurement insight> explaining <phenomenon>.
+\end{itemize}
+
+\section{Background and Model}
+% Scope, assumptions, notation. For systems, architecture/workloads.
+% For theory, model definitions and operational semantics.
+% Be explicit about limits and what is out of scope.
+
+\section{Methodology}
+% Theory: proof roadmap, lemmas, intuition; tightness/bounds.
+% Empirical/measurement: datasets, instrumentation, metrics, baselines,
+% setup details (HW/SW), seeds, repetitions, CIs, tests.
+% Simulation: model fidelity, warmup, convergence, validation.
+
+\section{Results}
+% Organize around RQs or hypotheses. Include uncertainty (CIs), baselines,
+% sensitivity/ablations, and practical significance (not only statistical).
+% Example figure and table below.
+
+\begin{figure}[t]
+  \centering
+  % Placeholder drawn with TikZ, no external file required
+  \placeholderfigure[Headline result goes here]
+  \caption{Headline result: succinct, outcome-focused caption.}
+  \Description{Textual description of the figure for accessibility.}
+  \label{fig:headline}
+\end{figure}
+
+\begin{table}[t]
+  \caption{Performance summary across workloads (95\% CIs).}
+  \label{tab:summary}
+  \centering
+  \begin{tabular}{l S[table-format=2.1] S[table-format=2.1] S[table-format=2.1]}
+    \toprule
+    {Workload} & {Baseline} & {Method} & {Delta [\%]} \\
+    \midrule
+    A &  45.2 &  36.0 & -20.4 \\
+    B & 120.5 &  95.9 & -20.4 \\
+    C &  78.3 &  60.2 & -23.2 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Threats to Validity and Ethics}
+% Internal/external/construct validity; limitations; IRB/ethics if applicable.
+
+\section{Related Work}
+% Position precisely relative to prior theory/systems/measurement literature.
+
+\section{Conclusion}
+% Key takeaways, limitations, and implications for practice/research.
+
+% \\begin{acks}
+% Add acknowledgments after acceptance; remove anonymous/review options,
+% restore \\settopmatter{printacmref=true}, and include funding details.
+% \\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\appendix
+
+\section{Proofs and Additional Experiments}
+% Detailed proofs, extended tables/figures, extra sensitivity analyses.
+
+\end{document}
