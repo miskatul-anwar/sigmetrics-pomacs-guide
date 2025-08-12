@@ -1,0 +1,20 @@
+% Shared macros for statistics, references, and units.
+% Load siunitx in the main document before including this file.
+
+% Confidence interval formatting: \ci{mean}{low--high} -> "123 (95\% CI: 120--126)"
+\newcommand{\ci}[2]{#1\,\,(95\% CI: #2)}
+
+% Percentage helper: \perc{12.3} -> "12.3\%"
+\newcommand{\perc}[1]{#1\%}
+
+% Common reference helpers
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\secref}[1]{\S\ref{#1}}
+\newcommand{\thmref}[1]{Theorem~\ref{#1}}
+
+% Units helper (requires siunitx): "\unit{ms}" -> typeset unit with spacing
+\newcommand{\unit}[1]{\,\si{#1}}
+
+% Inline code style
+\newcommand{\code}[1]{\texttt{#1}}

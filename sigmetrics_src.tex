@@ -1,0 +1,60 @@
+% SIGMETRICS Student Research Competition (SRC) style extended abstract (1–2 pages)
+% Two-column acmart template; adjust per the year's CFP page limits.
+\documentclass[sigconf,review,anonymous]{acmart}
+
+\settopmatter{printacmref=false}
+\pagestyle{plain}
+
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage[capitalize,noabbrev]{cref}
+\usepackage{tikz}
+
+\sisetup{detect-all=true}
+\input{src/stats}
+
+% Simple placeholder figure macro
+\newcommand{\placeholderfigure}[1][Placeholder figure; replace with your result]{%
+  \begin{tikzpicture}
+    \draw[gray] (0,0) rectangle (8,4);
+    \node[align=center] at (4,2) {#1};
+  \end{tikzpicture}%
+}
+
+\begin{document}
+
+\title[Short Title]{SRC: Descriptive Title with Main Claim}
+
+\begin{abstract}
+Problem and gap (1–2 sentences). Key idea (1 sentence). Headline empirical/theoretical
+result (1 sentence with uncertainty when applicable). Impact (1 sentence).
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+Context and motivation; what is hard; your contribution in a sentence.
+
+\section{Approach}
+Key idea, model/system sketch, and what is novel.
+
+\section{Results}
+One key plot/table with clear takeaway and uncertainty.
+
+\begin{figure}[t]
+  \centering
+  \placeholderfigure[Key result supporting the main claim]
+  \caption{Key result succinctly stated.}
+  \Description{Textual description of the figure for accessibility.}
+  \label{fig:src-key}
+\end{figure}
+
+\section{Conclusion}
+What the result enables; near-term next steps.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
